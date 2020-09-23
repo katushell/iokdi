@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Decorative WebGL Backgrounds</title>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="main.css"/>
+	</head>
+	<body>
+		<main>
+			<div class="content">
+				<div class="flex-cont">
+					<div class="logo">
+						<svg width="97" height="33" viewBox="0 0 97 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M69 29.778C76.732 29.778 83 25.7756 83 20.8385C83 15.9013 82.4615 5.80387 70.6154 11.899C58.2308 12.7117 55 15.9013 55 20.8385C55 32.2148 58.5888 31.4932 63.6851 30.4684C65.3239 30.1389 67.1186 29.778 69 29.778ZM68 23.718C70.2091 23.718 72 22.0547 72 20.0029C72 17.9511 70.2091 16.2878 68 16.2878C65.7909 16.2878 64 17.9511 64 20.0029C64 22.0547 65.7909 23.718 68 23.718Z" fill="#2E2E2E"/>
+							<line x1="58" y1="16.8965" x2="58" y2="8.00002" stroke="black" stroke-width="2"/>
+							<line x1="43" y1="9" x2="43" y2="31" stroke="black" stroke-width="14"/>
+							<line x1="45.5259" y1="18.1195" x2="58.5259" y2="11.1195" stroke="black" stroke-width="2"/>
+							<line x1="47.1737" y1="20.7926" x2="65.7156" y2="30.6515" stroke="black" stroke-width="5"/>
+							<path d="M16.5 3.29341C16.5 5.11232 6.41185 6.58683 4.84216 6.58683C3.27248 6.58683 2 5.11232 2 3.29341C2 1.47451 3.27248 0 4.84216 0C6.41185 0 16.5 1.47451 16.5 3.29341Z" fill="#545454"/>
+							<line x1="7" y1="31" x2="7" y2="9" stroke="black" stroke-width="14"/>
+							<path d="M96.5 4.29341C96.5 6.11232 86.4118 7.58683 84.8422 7.58683C83.2725 7.58683 82 6.11232 82 4.29341C82 2.47451 83.2725 1 84.8422 1C86.4118 1 96.5 2.47451 96.5 4.29341Z" fill="black"/>
+							<line x1="88" y1="31" x2="88" y2="9" stroke="black" stroke-width="14"/>
+							<line x1="77.5" y1="31" x2="77.5" stroke="#303030" stroke-width="7"/>
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M26 29.6034C32.6274 29.6034 38 25.0293 38 19.3868C38 13.7444 37.5385 2.20443 27.3846 9.17025C16.7692 10.0991 14 13.7444 14 19.3868C14 32.3883 17.0761 31.5636 21.4443 30.3925C22.849 30.0159 24.3874 29.6034 26 29.6034ZM26 23.718C28.0392 23.718 29.6923 22.0547 29.6923 20.0029C29.6923 17.9511 28.0392 16.2878 26 16.2878C23.9608 16.2878 22.3077 17.9511 22.3077 20.0029C22.3077 22.0547 23.9608 23.718 26 23.718Z" fill="black"/>
+							</svg>						
+					</div>
+					<nav class="nav">
+						<ul>
+							<li><a href="/">портфолио</a></li>
+							<li><a href="/">о нас</a></li>
+							<li><a href="/">контакты</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="titles">
+					<h1>сайт</h1>
+					<h1>дизайн</h1>
+					<h1>моушн</h1>
+					<h1>о нас</h1>
+				</div>
+				<canvas class="scene scene--full" id="scene"></canvas>
+				<script type="x-shader/x-vertex" id="wrapVertexShader">
+					#define PI 3.1415926535897932384626433832795
+					attribute float size;
+					void main() {
+						vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+						gl_PointSize = 3.0;
+						gl_Position = projectionMatrix * mvPosition;
+					}
+				</script>
+				<script type="x-shader/x-fragment" id="wrapFragmentShader">
+					uniform sampler2D texture;
+					void main(){
+						vec4 textureColor = texture2D( texture, gl_PointCoord );
+						if ( textureColor.a < 0.3 ) discard;
+						vec4 dotColor = vec4(0.06, 0.18, 0.36, 0.4);
+						vec4 color = dotColor * textureColor;
+						gl_FragColor = color;
+					}
+				</script>
+			</div>
+			<div class="cursor cursor--small"></div>
+      <canvas class="cursor cursor--canvas" resize></canvas>
+		</main>
+
+		<script src="js/three.min.js"></script>
+		<script src="js/TweenMax.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+
+		<script src="js/demo2.js"></script>
+	</body>
+</html>
