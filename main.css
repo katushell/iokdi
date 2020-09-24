@@ -5,7 +5,7 @@ body {
 	margin: 0;
 	font-family: 'Courier New', arial;
 	cursor:  auto;
-	cursor:  url(./img/d.png) 4 12, auto;
+	cursor:  url(./d.png) 4 12, auto;
 }
 h1{
 	font-size: 24px;
