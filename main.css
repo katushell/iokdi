@@ -3,71 +3,35 @@ body {
 	min-height: 100vh;
 	box-sizing: border-box;
 	margin: 0;
-	font-family: 'Cormorant', serif;
+	font-family: 'Courier New', arial;
 	cursor:  auto;
 	cursor:  url(./img/d.png) 4 12, auto;
 }
 h1{
-	font-weight: 300;
-	font-size: 36px;
-	line-height: 88.9%;
+	font-size: 24px;
+	line-height: 235.9%;
+	font-weight: normal;
+	text-align: right;
 	letter-spacing: -0.03em;
 	color: #2E2E2E;
 	margin: 0;
-	cursor:  url(./img/k.png) 4 12, auto;
 }
-.cursor {
-	position: fixed;
-	left: 0;
-	top: 0;
-	pointer-events: none;
-  }
-  .cursor--small {
-	width: 5px;
-	height: 5px;
-	left: -2.5px;
-	top: -2.5px;
-	border-radius: 50%;
-	z-index: 11000;
-	background: var(--color-text);
-  }
-  .cursor--canvas {
-	width: 100vw;
-	height: 100vh;
-	z-index: 12000;
-  }
+h1:hover{
+	color: #646464;
+}
 .content {
 	position: relative;
 	display: grid;
 }
-.titles{
-	justify-self: end;
+.logo{
 	position: absolute;
-	top: 20rem;
+	left: 20px;
+	top: 2rem;
 }
-.flex-cont{
-	display: flex;
-	justify-content: space-between;
-}
-ul{
-	display: flex;
-}
-li{
-	text-decoration: none;
-	list-style-type: none;
-	padding: 0px 10px;
-	color: #2E2E2E;
-}
-a{
-	cursor:  url(./img/k.png) 4 12, auto;
-	color: #2E2E2E;
-	text-decoration: none;
-}
-
-a:hover{
-	cursor:  url(./img/k.png) 4 12, auto;
-	color: #6A6A6A;
-	text-decoration: none;
+.titles{
+	position: absolute;
+	right: 20px;
+	top: 8rem;
 }
 
 
