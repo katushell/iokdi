@@ -1,0 +1,108 @@
+
+body {
+	min-height: 100vh;
+	box-sizing: border-box;
+	margin: 0;
+	font-family: 'Courier New', arial;
+}
+h1{
+	font-size: 24px;
+	line-height: 235.9%;
+	font-weight: normal;
+	text-align: right;
+	letter-spacing: -0.03em;
+	color: #2E2E2E;
+	margin: 0;
+}
+h1:hover{
+  cursor: pointer;
+	color: #646464;
+}
+h6{
+  margin-top: 0;
+  font-weight: bold;
+}
+.content {
+	position: relative;
+	display: grid;
+}
+.logo{
+	position: absolute;
+	left: 20px;
+	top: 2rem;
+}
+.titles{
+	position: absolute;
+	right: 20px;
+	top: 8rem;
+}
+
+
+.scene {
+	position: absolute;
+	z-index: -1;
+}
+.scene--left {
+	width: 100vmin;
+	height: 100vmin;
+	transform: translate3d(-100vmin,0,0);
+}
+.scene--full {
+	width: 100%;
+	height: 100vh;
+}
+
+
+
+
+
+
+
+.vmodal.open ,
+.vmodal.open .modal-window {
+  opacity: 1;
+  z-index: 1000;
+}
+
+.vmodal.hide,
+.vmodal.hide .modal-window {
+  opacity: 0;
+  z-index: -5;
+}
+
+
+.modal-window {
+  opacity: 0;
+  z-index: -1;
+}
+
+
+
+.modal-window {
+  width: 600px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 0 auto;
+}
+
+.modal-header {
+  padding: 0px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+}
+
+.modal-close {
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-body p {
+  margin: 0 0 5px;
+}
